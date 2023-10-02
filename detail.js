@@ -91,3 +91,20 @@ const predpoved = {
       'Neděle bude krásný slunečný den s teplotami mezi 18°C ráno a 26°C odpoledne. Nebude žádná oblačnost, a tak můžete očekávat celodenní slunečné počasí. Rychlost větru dosáhne 9 km/h a atmosférický tlak bude 1017 hPa.',
   },
 };
+const predpovedId = window.location.hash.slice(1);
+const predpovedData = predpoved[predpovedId];
+const mainElement = document.querySelector('main');
+
+mainElement.innerHTML += `
+  <article>
+    <h2>${predpovedData.den}</h2>
+    <p>Denní teplota: ${predpovedData.denni_teplota}</p>
+    <p>Ranní teplota: ${predpovedData.ranni_teplota}</p>
+    <p>Odpolední teplota: ${predpovedData.odpoledni_teplota}</p>
+    <p>Večerní teplota: ${predpovedData.vecerni_teplota}</p>
+    <p>Stav počasí: ${predpovedData.stav_pocasi}</p>
+    <p>Tlak: ${predpovedData.tlak}</p>
+    <p>Rychlost větru: ${predpovedData.rychlost_vetru}</p>
+    <p>${predpovedData.popis_pocasi}</p>
+  </article>
+`;
